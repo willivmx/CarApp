@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\API\abonnés;
 use App\Http\Controllers\API\abonnésController;
+use App\Http\Controllers\API\automobilesController;
+use App\Http\Controllers\API\depot_automobile;
+use App\Http\Controllers\API\depot_automobileContoller;
+use App\Http\Controllers\API\depot_automobileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Spatie\FlareClient\Api;
@@ -23,11 +27,11 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 
 
+
 //api
-
-route::get("abonnés", [abonnésController::class, "listabonnés"]);
-route::get("abonné/{id}", [abonnésController::class, "getabonné"]);
-route::post("creer-abonné", [abonnésController::class, "create"]);
-route::put("update_abonné/{id}", [abonnésController::class, "update"]);
-route::delete("delete_abonné/{id}", [abonnésController::class, "delete"]);
-
+// route pour automobiles
+route::get("automobiles",[automobilesController::class, "liste_automobiles"]);
+route::get("automobiles/{id}",[automobilesController::class, "get_automobiles"]);
+route::post("creer-automobiles",[automobilesController::class, "create_automobiles"]);
+route::PUT("update-automobiles/{id}",[automobilesController::class, "update_automobiles"]);
+route::delete("delete-automobiles/{id}",[automobilesController::class, "delete_automobiles"]);

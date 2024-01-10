@@ -8,27 +8,22 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * @return void
      */
     public function up(): void
     {
-        Schema::create('abonnés',function(Blueprint $table)
-        {
+        Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('email');
-            $table->string('numéro');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
-
-}
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('abonnés');
+        Schema::dropIfExists('permissions');
     }
 };

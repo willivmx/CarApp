@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class abonnés extends Model
+class permissions extends Model
 {
     use HasFactory;
-    protected $table = "abonnés";
-    protected $fillable = ['nom','prenom','email','numéro'];
+    protected $fillable = [
+        'name', 'description'
+    ];
 }
