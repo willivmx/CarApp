@@ -27,7 +27,7 @@ class automobilesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create_automobiles(Request $request)
+    public function create_automobile(Request $request)
     {
         //return $request;
         //validation
@@ -75,7 +75,7 @@ class automobilesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function get_automobiles(string $id)
+    public function get_automobile(string $id)
     {
         //verifier si un abonné a cet ID
         $automobile = ModelsAutomobiles::where('id',$id)->exists();
@@ -113,7 +113,7 @@ class automobilesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update_automobiles(Request $request, string $id)
+    public function update_automobile(Request $request, string $id)
     {
         //vérifie si l'abonnés existe d'abord
         $automobile = ModelsAutomobiles::where('id',$id)->exists();
@@ -152,7 +152,7 @@ class automobilesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete_automobiles(string $id)
+    public function delete_automobile(string $id)
     {
         $automobile = ModelsAutomobiles::where('id',$id)->exists();
         if($automobile)
