@@ -19,7 +19,7 @@ class automobilesController extends Controller
             return response()->json([
                 "status" => 1,
                 "message" => "liste des abonnés",
-                "date" => $automobiles
+                "data" => $automobiles
             ], 200);
         }
     }
