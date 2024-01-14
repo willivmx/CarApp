@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('root');
+});
+
+Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.'], function () {
+    Route::get('/', function () {
+        return Inertia::render('Dashboard/index');
+    })->name('root');
 });
 
 require __DIR__.'/auth.php';

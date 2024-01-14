@@ -18,5 +18,9 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+        @if (!Auth::check() && request()->is('dashboard*'))
+            <script>window.location = "{{ route('auth.login') }}";</script>
+        @endif
+
     </body>
 </html>
