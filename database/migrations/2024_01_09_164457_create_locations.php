@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('utilisateur_id')->constrained();
-            $table->foreignId('automobile_id')->constrained();
-            $table->dateTime('date_debut');
-            $table->dateTime('date_fin');
-            $table->decimal('cout', 8, 2);
-            $table->string('statut')->default('en_cours');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('car_id')->constrained();
+            $table->dateTime('location_date');
+            $table->dateTime('return_date');
+            $table->decimal('location_amount', 8, 2);
+            $table->string('status')->default('initiated');
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

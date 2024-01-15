@@ -1,11 +1,7 @@
 <?php
 
-use App\Http\Controllers\API\abonnés;
-use App\Http\Controllers\API\abonnésController;
-use App\Http\Controllers\API\automobilesController;
-use App\Http\Controllers\API\depot_automobile;
-use App\Http\Controllers\API\depot_automobileContoller;
-use App\Http\Controllers\API\depot_automobileController;
+
+use App\Http\Controllers\API\carsController;
 use App\Http\Controllers\API\locationsController;
 use App\Http\Controllers\API\permissionsController;
 use App\Http\Controllers\API\rolesController;
@@ -33,12 +29,14 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 
 //api
-// route pour automobiles
-route::get("automobiles",[automobilesController::class, "liste_automobiles"]);
-route::get("automobile/{id}",[automobilesController::class, "get_automobile"]);
-route::post("creer-automobile",[automobilesController::class, "create_automobile"]);
-route::put("update-automobile/{id}",[automobilesController::class, "update_automobile"]);
-route::delete("delete-automobile/{id}",[automobilesController::class, "delete_automobile"]);
+
+Route::group(['prefix' => '/cars', 'as' => 'cars.'], function () {
+    route::get("/",[carsController::class, "list_cars"]);
+    route::get("/{id}",[carsController::class, "get_car"]);
+    route::post("/",[carsController::class, "create_car"]);
+    route::put("/{id}",[carsController::class, "update_car"]);
+    route::delete("/{id}",[carsController::class, "delete_car"]);
+});
 
 // Routes pour locations
 Route::get("locations", [locationsController::class, "list_locations"]);
