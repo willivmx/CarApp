@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'willivmx',
             'email' => 'jadannouzonon@gmail.com',
             'password' => bcrypt('password'),
+            'role' => 'admin',
         ]);
     }
 }
