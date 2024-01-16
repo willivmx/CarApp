@@ -1,10 +1,11 @@
 import React from 'react';
+import DashboardLayout from "@/Layouts/DashboardLayout";
 
 const Index = () => {
     return (
-        <div>
+        <DashboardLayout>
             Index
-        </div>
+        </DashboardLayout>
     );
 };
 
