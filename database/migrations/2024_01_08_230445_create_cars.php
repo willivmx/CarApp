@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('color');
             $table->string('fuel_type');
             $table->integer('mileage');
+            $table->string('cover');
             $table->string('status')->default('available');
         });
     }

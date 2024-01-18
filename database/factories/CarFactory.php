@@ -24,7 +24,8 @@ class carFactory extends Factory
             'color' => fake()->colorName(),
             'fuel_type' => fake()->randomElement(['gasoline', 'diesel', 'electric']),
             'mileage' => fake()->numberBetween(0, 100000),
-            'status' => fake()->randomElement(['available', 'unavailable'])
+            'status' => fake()->randomElement(['available', 'unavailable']),
+            'cover' => fake()->imageUrl(640, 480, 'cars', true),
         ];
     }
 }

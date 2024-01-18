@@ -18,10 +18,16 @@ Route::get('/', function () {
     return view('root');
 });
 
-Route::group(['prefix' => '/dashboard', 'as' => 'dashboard.'], function () {
-    Route::get('/', function () {
-        return Inertia::render('Dashboard/index');
-    })->name('root');
-});
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->name('dashboard');
+
+Route::get('/cars', function () {
+    return Inertia::render('Cars');
+})->name('cars');
+
+Route::get('/loans', function () {
+    return Inertia::render('Loans');
+})->name('loans');
 
 require __DIR__.'/auth.php';

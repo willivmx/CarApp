@@ -1,12 +1,12 @@
 import React from 'react';
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
-const Index = () => {
+const Loans = () => {
     return (
         <DashboardLayout>
-            Index
+            Loans
         </DashboardLayout>
     );
 };
 
-export default Index;
+export default Loans;

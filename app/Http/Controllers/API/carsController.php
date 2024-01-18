@@ -31,6 +31,7 @@ class carsController extends Controller
             "plate_number" => "required",
             "fuel_type" => "required",
             "mileage" => "required",
+            "cover" => "optional",
             "status" => "required"]);
 
         $car = new CarsModel();
@@ -42,6 +43,7 @@ class carsController extends Controller
         $car->fuel_type = $request->fuel_type;
         $car->mileage = $request->mileage;
         $car->status = $request->status;
+        $car->cover = $request->cover;
         $car->save();
 
         return response()->json([
@@ -61,6 +63,7 @@ class carsController extends Controller
             $car->fuel_type = $request->fuel_type;
             $car->mileage = $request->mileage;
             $car->status = $request->status;
+            $car->cover = $request->cover;
             $car->save();
             return response()->json([
                 "status" => 1,
