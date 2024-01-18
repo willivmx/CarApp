@@ -258,7 +258,7 @@ const CarAddingForm = () => {
                 <FormField
                     control={form.control}
                     name="mileage"
-                    render={({field}) => (
+                    render={() => (
                         <FormItem
                             className={"w-1/2"}>
                             <FormLabel>kilométrage</FormLabel>
