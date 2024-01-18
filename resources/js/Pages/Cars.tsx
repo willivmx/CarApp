@@ -21,15 +21,15 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form";
-import {Input} from "@/components/ui/input";
+} from "@/Components/ui/form";
+import {Input} from "@/Components/ui/input";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "@/Components/ui/select";
 import axios from "axios";
 
 const FUEL_TYPES = [
