@@ -183,7 +183,7 @@ const CarAddingForm = () => {
           render={({ field }) => (
             <FormItem
               className={'w-1/3'}>
-              <FormLabel>Marque</FormLabel>
+              <FormLabel>Marque </FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
