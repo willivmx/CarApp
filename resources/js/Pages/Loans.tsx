@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/Components/ui/accordion';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/Components/ui/button';
 import axios from 'axios';
 import { Pencil, Plus, Trash2 } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -16,6 +16,8 @@ const Loans = () => {
 
   const getLoans = async () => {
     const data = await axios.get('/api/loans').then((res) => res.data).catch((err) => console.log(err));
+    //invert the array to have the most recent loans first
+    data.reverse();
     setLoans(data);
   };
 
@@ -93,9 +95,7 @@ const LoanElement = ({ loan }: { loan: any }) => {
               axios.delete(`/api/loans/${loan.id}`).then(() => window.location.reload());
             }} size={"sm"}><Trash2 size={16}/> Supprimer</Button>
 
-            <Button onClick={() => {
-              axios.delete(`/api/loans/${loan.id}`).then(() => window.location.reload());
-            }} size={"sm"} variant={"secondary"}><Pencil size={16}/> Modifier</Button>
+            <Button size={"sm"} variant={"secondary"}><Pencil size={16}/> Modifier</Button>
           </div>
         </AccordionContent>
       </AccordionItem>

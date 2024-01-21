@@ -6,10 +6,6 @@
         <title>CarApp</title>
     </head>
     <body>
-        @if (Auth::check())
-            <script>window.location = "{{ route('dashboard.root') }}";</script>
-        @else
-            <script>window.location = "{{ route('auth.login') }}";</script>
-        @endif
+        <script>window.location = "{{ route('dashboard') }}";</script>
     </body>
 </html>

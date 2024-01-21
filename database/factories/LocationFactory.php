@@ -17,8 +17,8 @@ class LocationFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->numberBetween(1, 10),
-            'car_id' => fake()->numberBetween(1, 10),
+            'user_id' => fake()->numberBetween(1, 200),
+            'car_id' => fake()->numberBetween(1, 70),
             'location_date' => fake()->dateTimeBetween('-1 years', 'now'),
             'return_date' => fake()->dateTimeBetween('now', '+1 years'),
             'location_amount' => fake()->numberBetween(0, 100000),

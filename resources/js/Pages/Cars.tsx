@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect } from 'react';
 import DashboardLayout from '@/Layouts/DashboardLayout';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/Components/ui/button';
 import { ImageDown, Loader2, MoreVertical, Plus } from 'lucide-react';
 import { Card, CardContent } from '@/Components/ui/card';
 import {
@@ -31,6 +31,7 @@ import {
   SelectValue,
 } from '@/Components/ui/select';
 import axios from 'axios';
+import { PageProps } from '@/types';
 
 const FUEL_TYPES = [
   {
@@ -56,7 +57,7 @@ const CAR_STATUS = [
   },
 ];
 
-const Cars = () => {
+const Cars = ({ auth }: PageProps) => {
   const [cars, setCars] = React.useState<any[]>([]);
   const getCars = async () => {
     const data = await axios.get('/api/cars').then(res => res.data).catch(err => console.log(err));
@@ -73,7 +74,7 @@ const Cars = () => {
         <div className={'text-4xl font-extrabold'}><span>Liste des véhicules</span></div>
         <Dialog>
           <DialogTrigger>
-            <Button className={'flex gap-1'}><Plus size={16} />Ajouter</Button>
+              {auth.user && <Button className={'flex gap-1'}><Plus size={16} />Ajouter</Button>}
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -117,6 +118,7 @@ const CarCard = ({ car }: { car: any }) => {
           <span className={'text-sm'}>Kilométrage: {car.mileage}</span>
           <span className={'text-sm'}>Status: {car.status}</span>
         </div>
+          <Button className={"mt-2 w-full"}>Louer</Button>
       </CardContent>
     </Card>
   );

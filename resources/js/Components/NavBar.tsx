@@ -11,6 +11,7 @@ import {
 } from "@/Components/ui/navigation-menu"
 import {Link} from "@inertiajs/react";
 import { Button } from '@/Components/ui/button';
+import { PageProps } from '@/types';
 
 const navigationMenuItems = [
     {
@@ -51,7 +52,7 @@ const NavBar = () => {
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
-            <Button size={"sm"}><Link href={"/auth/logout"}>Se déconnecter</Link></Button>
+            <Button size={'sm'}><Link href={'/auth/logout'}>Se déconnecter</Link></Button>
         </div>
     );
 };
