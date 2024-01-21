@@ -39,7 +39,7 @@ const Loans = () => {
         <div className={'text-4xl font-extrabold'}><span>Liste des locations</span></div>
         <Dialog>
           <DialogTrigger>
-            <Button className={'flex gap-1'}><Plus size={16} />Ajouter</Button>
+            <Button className={'flex gap-1'}><Plus size={16} />Nouvelle</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
