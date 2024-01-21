@@ -74,7 +74,7 @@ const Cars = ({ auth }: PageProps) => {
         <div className={'text-4xl font-extrabold'}><span>Liste des véhicules</span></div>
         <Dialog>
           <DialogTrigger>
-              {auth.user && <Button className={'flex gap-1'}><Plus size={16} />Nouveau</Button>}
+              <Button className={'flex gap-1'}><Plus size={16} />Nouveau</Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>

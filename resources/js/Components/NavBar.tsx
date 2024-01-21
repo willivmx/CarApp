@@ -12,6 +12,7 @@ import {
 import {Link} from "@inertiajs/react";
 import { Button } from '@/Components/ui/button';
 import { PageProps } from '@/types';
+import ApplicationLogo from '@/Components/ApplicationLogo';
 
 const navigationMenuItems = [
     {
@@ -36,7 +37,7 @@ const navigationMenuItems = [
 const NavBar = () => {
     return (
         <div className={"h-12 w-full top-0 left-0 bg-transparent backdrop-blur border flex items-center px-8 gap-12 justify-between sticky"}>
-            <span className={"font-black"}>CAR-APP</span>
+            <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
             <div className={"flex-1 flex justify-center items-center"}>
                 <NavigationMenu>
                     <NavigationMenuList>
