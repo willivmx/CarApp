@@ -69,7 +69,8 @@ const Cars = () => {
 
   return (
     <DashboardLayout>
-      <div className={'w-full flex justify-end items-center px-8 py-4'}>
+      <div className={'w-full flex justify-between items-center px-8 py-4'}>
+        <div className={'text-4xl font-extrabold'}><span>Liste des véhicules</span></div>
         <Dialog>
           <DialogTrigger>
             <Button className={'flex gap-1'}><Plus size={16} />Ajouter</Button>

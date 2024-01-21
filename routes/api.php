@@ -3,9 +3,7 @@
 
 use App\Http\Controllers\API\carsController;
 use App\Http\Controllers\API\locationsController;
-use App\Http\Controllers\API\permissionsController;
-use App\Http\Controllers\API\rolesController;
-use App\Http\Controllers\API\utilisateursController;
+use App\Http\Controllers\API\usersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Spatie\FlareClient\Api;
@@ -39,29 +37,18 @@ Route::group(['prefix' => '/cars', 'as' => 'cars.'], function () {
 });
 
 // Routes pour locations
-Route::get("locations", [locationsController::class, "list_locations"]);
-Route::get("location/{id}", [locationsController::class, "get_location"]);
-Route::post("creer-location", [locationsController::class, "create_location"]);
-Route::put("update-location/{id}", [locationsController::class, "update_location"]);
-Route::delete("delete-location/{id}", [locationsController::class, "delete_location"]);
+Route::group(['prefix' => '/loans', 'as' => 'loans.'], function () {
+    route::get("/",[locationsController::class, "list_locations"]);
+    route::get("/{id}",[locationsController::class, "get_location"]);
+    route::post("/",[locationsController::class, "create_location"]);
+    route::put("/{id}",[locationsController::class, "update_location"]);
+    route::delete("/{id}",[locationsController::class, "delete_location"]);
+});
 
-// Routes pour permissions
-Route::get("permissions", [permissionsController::class, "list_permissions"]);
-Route::get("permission/{id}", [permissionsController::class, "get_permissions"]);
-Route::post("creer-permission", [permissionsController::class, "create_permissions"]);
-Route::put("update-permission/{id}", [permissionsController::class, "update_permissions"]);
-Route::delete("delete-permission/{id}", [permissionsController::class, "delete_permissions"]);
-
-// Routes pour roles
-Route::get("roles", [rolesController::class, "list_roles"]);
-Route::get("role/{id}", [rolesController::class, "get_roles"]);
-Route::post("creer-role", [rolesController::class, "create_roles"]);
-Route::put("update-role/{id}", [rolesController::class, "update_roles"]);
-Route::delete("delete-role/{id}", [rolesController::class, "delete_roles"]);
-
-// Routes pour utilisateurs
-Route::get("utilisateurs", [utilisateursController::class, "list_utilisateurs"])->middleware('auth:api', 'admin');
-Route::get("utilisateur/{id}", [utilisateursController::class, "get_utilisateur"])->middleware('auth:api');
-Route::post("creer-utilisateur", [utilisateursController::class, "create_utilisateur"]);
-Route::put("update-utilisateur/{id}", [utilisateursController::class, "update_utilisateur"])->middleware('auth:api');
-Route::delete("delete-utilisateur/{id}", [utilisateursController::class, "delete_utilisateur"])->middleware('auth:api', 'admin');
+// Routes pour userss
+Route::group(['prefix' => '/users', 'as' => 'users.'], function () {
+    Route::get("/", [usersController::class, "list_users"]);
+    Route::get("/{id}", [usersController::class, "get_user"]);
+    Route::put("/{id}", [usersController::class, "update_users"]);
+    Route::delete("/{id}", [usersController::class, "delete_users"]);
+});
