@@ -10,8 +10,9 @@ import { Button } from '@/Components/ui/button';
 import axios from 'axios';
 import { Pencil, Plus, Trash2 } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { PageProps } from '@/types';
 
-const Loans = () => {
+const Loans = ({ auth }: PageProps) => {
   const [loans, setLoans] = React.useState<any[]>([]);
 
   const getLoans = async () => {
@@ -34,12 +35,12 @@ const Loans = () => {
   // async () => await getCar(loan.car_id).then((res) => res.brand)
 
   return (
-    <DashboardLayout>
+    <DashboardLayout auth={auth}>
       <div className={'w-full flex justify-between items-center px-8 py-4'}>
         <div className={'text-4xl font-extrabold'}><span>Liste des locations</span></div>
         <Dialog>
           <DialogTrigger>
-            <Button className={'flex gap-1'}><Plus size={16} />Nouvelle</Button>
+              {auth.user && <Button className={'flex gap-1'}><Plus size={16} />Nouvelle</Button>}
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>

@@ -46,7 +46,7 @@ const Clients = ({ auth }: PageProps) => {
 
 
   return (
-    <DashboardLayout>
+    <DashboardLayout auth={auth}>
       <div className={'w-full flex justify-between items-center px-8 py-4'}>
         <div className={'text-4xl font-extrabold'}><span>Liste des clients</span></div>
         <Dialog>

@@ -69,12 +69,12 @@ const Cars = ({ auth }: PageProps) => {
   }, []);
 
   return (
-    <DashboardLayout>
+    <DashboardLayout auth={auth}>
       <div className={'w-full flex justify-between items-center px-8 py-4'}>
         <div className={'text-4xl font-extrabold'}><span>Liste des véhicules</span></div>
         <Dialog>
           <DialogTrigger>
-              <Button className={'flex gap-1'}><Plus size={16} />Nouveau</Button>
+              {auth.user  && <Button className={'flex gap-1'}><Plus size={16} />Nouveau</Button>}
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>

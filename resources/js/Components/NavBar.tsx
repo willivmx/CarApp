@@ -13,6 +13,7 @@ import {Link} from "@inertiajs/react";
 import { Button } from '@/Components/ui/button';
 import { PageProps } from '@/types';
 import ApplicationLogo from '@/Components/ApplicationLogo';
+import axios from 'axios';
 
 const navigationMenuItems = [
     {
@@ -34,7 +35,14 @@ const navigationMenuItems = [
 ]
 
 
-const NavBar = () => {
+const NavBar = ({ auth }:{auth: any}) => {
+    const logout = () => {
+        axios.post('/logout', {
+            auth
+        }).then(() => {
+            window.location.href = '/';
+        });
+    }
     return (
         <div className={"h-12 w-full top-0 left-0 bg-transparent backdrop-blur border flex items-center px-8 gap-12 justify-between sticky"}>
             <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
@@ -53,7 +61,10 @@ const NavBar = () => {
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
-            <Button size={'sm'}><Link href={'/auth/logout'}>Se déconnecter</Link></Button>
+            {auth.user ? <Button size={'sm'} onClick={() => logout()}>Se déconnecter</Button> : <div className={"flex gap-2"}>
+                <Button size={'sm'} variant={"secondary"}><Link href={"auth/login"}>Connexion</Link></Button>
+                <Button size={'sm'}><Link href={"auth/register"}>Inscription</Link></Button>
+            </div>}
         </div>
     );
 };
