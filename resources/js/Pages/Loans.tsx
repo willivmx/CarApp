@@ -8,7 +8,8 @@ import {
 } from '@/Components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import axios from 'axios';
-import { Pencil, Trash2 } from 'lucide-react';
+import { Pencil, Plus, Trash2 } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const Loans = () => {
   const [loans, setLoans] = React.useState<any[]>([]);
@@ -32,8 +33,21 @@ const Loans = () => {
 
   return (
     <DashboardLayout>
+      <div className={'w-full flex justify-between items-center px-8 py-4'}>
+        <div className={'text-4xl font-extrabold'}><span>Liste des locations</span></div>
+        <Dialog>
+          <DialogTrigger>
+            <Button className={'flex gap-1'}><Plus size={16} />Ajouter</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Ajouter une location</DialogTitle>
+            </DialogHeader>
+
+          </DialogContent>
+        </Dialog>
+      </div>
       <div className={'w-full p-10'}>
-        <div className={'w-full text-center text-4xl font-extrabold'}><span>Liste des locations</span></div>
         {loans.map((loan, index) => (
           <LoanElement loan={loan} key={index} />
         ))}

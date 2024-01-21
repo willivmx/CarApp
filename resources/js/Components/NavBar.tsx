@@ -10,11 +10,16 @@ import {
     NavigationMenuViewport,
 } from "@/Components/ui/navigation-menu"
 import {Link} from "@inertiajs/react";
+import { Button } from '@/Components/ui/button';
 
 const navigationMenuItems = [
     {
         name: 'Tableau de bord',
         href: '/dashboard'
+    },
+    {
+        name: 'Clients',
+        href: '/clients'
     },
     {
         name: 'Véhicules',
@@ -31,7 +36,7 @@ const NavBar = () => {
     return (
         <div className={"h-12 w-full top-0 left-0 bg-transparent backdrop-blur border flex items-center px-8 gap-12 justify-between sticky"}>
             <span className={"font-black"}>CAR-APP</span>
-            <div className={"flex-1"}>
+            <div className={"flex-1 flex justify-center items-center"}>
                 <NavigationMenu>
                     <NavigationMenuList>
                         {navigationMenuItems.map((item, index) => (
@@ -46,7 +51,7 @@ const NavBar = () => {
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
-
+            <Button size={"sm"}><Link href={"/auth/logout"}>Se déconnecter</Link></Button>
         </div>
     );
 };

@@ -103,14 +103,14 @@ const CarCard = ({ car }: { car: any }) => {
           <img src={car.cover} alt='' className={'w-full h-full object-cover rounded-lg'} />
         </div>
         <div className={'w-full p-2 flex flex-col'}>
-                    <span className={'font-semibold flex justify-between items-center'}>
-                        <span>
-                            {(`${car.brand} ${car.model}`).toUpperCase()} - {car.year}
-                        </span>
-                        <span className={'border flex justify-center items-center size-7 rounded-full cursor-pointer'}>
-                            <MoreVertical size={16} />
-                        </span>
-                    </span>
+          <span className={'font-semibold flex justify-between items-center'}>
+              <span>
+                  {(`${car.brand} ${car.model}`).toUpperCase()} - {car.year}
+              </span>
+              <span className={'border flex justify-center items-center size-7 rounded-full cursor-pointer'}>
+                  <MoreVertical size={16} />
+              </span>
+          </span>
           <span className={'text-sm'}>Immatriculation: {(car.plate_number).toUpperCase()}</span>
           <span className={'text-sm'}>Couleur: {car.color}</span>
           <span className={'text-sm'}>Carburant: {car.fuel_type}</span>

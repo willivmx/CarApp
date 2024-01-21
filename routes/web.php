@@ -26,6 +26,10 @@ Route::get('/cars', function () {
     return Inertia::render('Cars');
 })->name('cars');
 
+Route::get('/clients', function () {
+    return Inertia::render('Clients');
+})->name('clients');
+
 Route::get('/loans', function () {
     return Inertia::render('Loans');
 })->name('loans');
